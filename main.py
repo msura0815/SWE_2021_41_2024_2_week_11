@@ -3,8 +3,8 @@ import json
 
 def path_to_file_list(path: str) -> List[str]:
     """Reads a file and returns a list of lines in the file"""
-    # Will this be working?
-    lines = open(path, 'r').read().split('\n')
+    with open(path, 'r') as f:  # 'r' 모드로 파일을 읽기 모드로 엽니다
+        lines = f.read().split('\n')  # 파일 내용을 읽고 줄바꿈 기준으로 분리합니다
     return lines
 
 def train_file_list_to_json(english_file_list: List[str], german_file_list: List[str]) -> List[str]:
